@@ -13,8 +13,6 @@ import json
 
 from google.colab import files 
 
-# Upload JSON file  
-uploaded = files.upload()  
 
 # Upload JSON file  
 uploaded = files.upload()  
