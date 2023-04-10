@@ -42,6 +42,7 @@ with open('ubo1.json','r') as f:
 print(data)
 
 # Convert JSON data to formatted string
+json_data = json_text
 print(json.dumps(json_data, indent=4))
 data = json.dumps(json_data)
 
