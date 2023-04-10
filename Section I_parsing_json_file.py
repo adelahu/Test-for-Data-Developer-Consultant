@@ -16,6 +16,9 @@ from google.colab import files
 # Upload JSON file  
 uploaded = files.upload()  
 
+# Upload JSON file  
+uploaded = files.upload()  
+
 # Load JSON file
 with open('ubo1.json','r') as f:
     # Read the file content as text
@@ -24,10 +27,10 @@ with open('ubo1.json','r') as f:
     # Replace single quotes with double quotes
     json_text = json_text.replace("'", "\"")
     # Insert missing quotes around property names
-    json_data = json_data.replace('"{', '{"').replace('}"', '"}').replace('":', '":')
+    json_text = json_text.replace('"{', '{"').replace('}"', '"}').replace('":', '":')
 
     # Convert 'True' to lowercase
-    json_data = json_data.replace('True', 'true')
+    json_text = json_text.replace('True', 'true')
     
     # Load JSON from the updated text
     try:
