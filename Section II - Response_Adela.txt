@@ -1,0 +1,34 @@
+Section II - the completeness and quality of the explanations provided
+
+**Would you store data in databricks as delta or parquet format? Based on your choice, please explain why?**
+
+_Similarities_
+Both delta and parquet are commonly used as data storage formats in databricks with similar functions that can effeciently deal with big data, for example, both of them store data in a columnar format, and support a wide range of data types (numeric, string, arrays...), they can do predicate pushdown (storage level filtering before reading into memory), and schema evalution without rewriting the entire dataset.  
+
+_Choices based on different use cases_
+However, depends on specific use purposes, generally speaking, I would choose Delta when I need more advanced data management features (such as versioning, data lineage, and ACID compliance capabilities to ensure data integrity, track changes) and real-time data processing and analytics (i.e. leveraging time travel feature), choose Parquet when I need to prioritize query performance and interoperability (since parquet is an industry-standard format, and commonly used in Databricks Spark cluster).
+
+_Real-life examples_
+To be more specific, when I need to perform a big data analytics in databricks using INT's data from datalake, I would use Parquet format in our Databricks Spark cluster to compress, encode, store and process the large-scaled data, given Parquet is highly optimized columnar storage format that allows for efficient compression and encoding of individual columns, and predicate filtering at storage layer. I would choose delta when I need to perform data warehouse/ data lake management tasks - such as storing hot data into our INT data warehouse, given its ACID transactions, time travel, and schema evolution capabilities is on top of Apache Parquet. 
+ 
+ 
+
+**Please explain the process of how you would optimize PySpark or SQL code to effectively use databricks spark cluster?**
+
+In order to effectively use databricks spark cluster, I would optimize PySpark or SQL by following steps:
+
+1. Task Breakdown - understanding goal, business requirements, identify data sources, and then to understand the data schema, data size, data distribution, and/or any other specific requirements of the analytics or processing tasks from the data scientist 
+
+2. Glance at Profiling & Performance Analysis - By using Spark's built-in profiling tools, such as Spark UI, Spark Monitoring, and Databricks jobs,   to identify performance bottlenecks in my PySpark and SQL code (i.e. slow-performing operations, unnecessary data shuffling). 
+
+3. Code Optimization - for SQL code optimization, 
+(1) Use Spark SQL Built-in Functions For example, using current_date to automate date-related calculation instead of manually changing dates. 
+(2) Review codes and try to reduce the use of complex subqueries (i.e. breakdown it into few joined simple parts using CTEs and/or temporary views), avoiding unnecessary joins/aggregates (especially full joins of full tables without any filters), and also may use some indexing or partitioning for more efficient data retrieval (i.e. using  `CREAT INDEX`, `CREATE TABLE` followed by `PARTITION BY`).
+(3) Cache results in memory for iterative or repetitive SQL queries using Spark SQL's table caching feature to improve the code performance. 
+
+
+4. Keep Monitoring and Cluster fine-tuning: Keep communicating with data scientist to monitor and optimize the allocation of cluster resources, including CPU, memory, and storage, to ensure efficient utilization and avoid resource bottlenecks. I may also use Databricks cluster management features, such as auto-scaling, dynamic allocation, and cluster configurations, to optimize resource allocation based on the workload, priorities of tasks and specific data requirements.
+
+5. Test and Validate: test and validate codes as needed/regularly/periodically  
+
+
