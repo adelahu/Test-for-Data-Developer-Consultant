@@ -1,0 +1,9 @@
+Requirements
+The following dependencies are required to run this FastAPI application
+
+Python (>=3.7) 
+FastAPI (>=0.68.0)
+SQLAlchemy (>=1.4.27)
+Uvicorn (>=0.15.0)
+Pydantic (>=1.9.0)
+SQLite (>=3.36.0)
