@@ -42,29 +42,29 @@ with open('ubo1.json','r') as f:
 print(data)
 
 # Convert JSON data to formatted string
-json_data = json_text
-print(json.dumps(json_data, indent=4))
-data = json.dumps(json_data)
+# json_data = json_text
+# print(json.dumps(json_data, indent=4))
+# data = json.dumps(json_data)
 
 print(type(data))  # Check if data is a list or dictionary
 
 # Converting the string to a dictionary first
-json_string = '{"key": "value"}'
-data = json.loads(json_string)  # converting the string to a dictionary
+# json_string = '{"key": "value"}'
+# data = json.loads(json_string)  # converting the string to a dictionary
 
 
-def flatten_json(data, prefix=''):
-    flattened_data = {}
-    for key, value in data.items():
-        if isinstance(value, dict):
-            flattened_data.update(flatten_json(value, prefix + key + '_'))
-        else:
-            flattened_data[prefix + key] = value
-    return flattened_data
+# def flatten_json(data, prefix=''):
+#     flattened_data = {}
+#     for key, value in data.items():
+#         if isinstance(value, dict):
+#             flattened_data.update(flatten_json(value, prefix + key + '_'))
+#         else:
+#             flattened_data[prefix + key] = value
+#     return flattened_data
 
-flattened_data = flatten_json(data)
+# flattened_data = flatten_json(data)
 
-print(data)
+# print(data)
 
 del data['api_version']
 
